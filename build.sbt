@@ -29,12 +29,12 @@ val commonSettings = Seq(
   scalaVersion := Scala212,
   crossScalaVersions := List(Scala212, Scala213),
   scalacOptions --= Seq("-Xfatal-warnings"),
-  name := "cats-effect-utils",
+  name := "catharsis",
   updateOptions := updateOptions.value.withGigahorse(false),
   libraryDependencies ++= List(
     "org.typelevel" %% "cats-effect" % "2.1.1"
   ) ++ compilerPlugins
 )
 
-val catsEffectUtils =
+val catharsis =
   project.in(file(".")).settings(commonSettings)
