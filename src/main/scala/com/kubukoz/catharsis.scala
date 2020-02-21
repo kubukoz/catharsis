@@ -27,7 +27,7 @@ object catharsis {
     * )
     * }}}
     */
-  def onHang[F[_]: Concurrent: Parallel, A](action: F[A])(hanger: F[Unit]) = Deferred[F, Unit].flatMap { completed =>
-    (action <* completed.complete(())) <& (completed.get.race(hanger))
+  def onHang[F[_]: Concurrent: Parallel, A](action: F[A])(hanger: F[Unit]): F[A] = Deferred[F, Unit].flatMap {
+    completed => (action <* completed.complete(())) <& (completed.get.race(hanger))
   }
 }
