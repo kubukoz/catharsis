@@ -17,3 +17,5 @@ sbt dependency:
 ```scala
 "com.kubukoz" %% "catharsis" % version
 ```
+
+catharsis is cross-built for Scala 2.12 and 2.13.
