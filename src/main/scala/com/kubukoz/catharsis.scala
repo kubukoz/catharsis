@@ -1,9 +1,6 @@
 package com.kubukoz
 
 import cats.effect.Concurrent
-import cats.effect.concurrent.Deferred
-import cats.Parallel
-import cats.implicits._
 import cats.effect.implicits._
 
 object catharsis {
@@ -27,7 +24,5 @@ object catharsis {
     * )
     * }}}
     */
-  def onHang[F[_]: Concurrent: Parallel, A](action: F[A])(hanger: F[Unit]): F[A] = Deferred[F, Unit].flatMap {
-    completed => (action <* completed.complete(())) <& (completed.get.race(hanger))
-  }
+  def onHang[F[_]: Concurrent, A](action: F[A])(hanger: F[Unit]): F[A] = hanger.background.use(_ => action)
 }

@@ -31,8 +31,10 @@ val commonSettings = Seq(
   scalacOptions --= Seq("-Xfatal-warnings"),
   name := "catharsis",
   updateOptions := updateOptions.value.withGigahorse(false),
+  testFrameworks += new TestFramework("munit.Framework"),
   libraryDependencies ++= List(
-    "org.typelevel" %% "cats-effect" % "2.1.1"
+    "org.typelevel" %% "cats-effect" % "2.1.1",
+    "org.scalameta" %% "munit" % "0.5.2" % Test
   ) ++ compilerPlugins
 )
 
