@@ -33,8 +33,8 @@ val commonSettings = Seq(
   updateOptions := updateOptions.value.withGigahorse(false),
   testFrameworks += new TestFramework("munit.Framework"),
   libraryDependencies ++= List(
-    "org.typelevel" %% "cats-effect" % "2.1.3",
-    "org.scalameta" %% "munit" % "0.7.9" % Test
+    "org.typelevel" %% "cats-effect" % "2.1.4",
+    "org.scalameta" %% "munit" % "0.5.2" % Test
   ) ++ compilerPlugins
 )
 
