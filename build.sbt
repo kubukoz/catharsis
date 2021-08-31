@@ -34,7 +34,7 @@ val commonSettings = Seq(
   testFrameworks += new TestFramework("munit.Framework"),
   libraryDependencies ++= List(
     "org.typelevel" %% "cats-effect" % "2.2.0",
-    "org.scalameta" %% "munit" % "0.5.2" % Test
+    "org.scalameta" %% "munit" % "0.7.29" % Test
   ) ++ compilerPlugins
 )
 
